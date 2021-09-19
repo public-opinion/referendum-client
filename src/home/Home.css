@@ -1,0 +1,15 @@
+.App {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.App-content {
+  height: 100%;
+  padding: 15px;
+}
+

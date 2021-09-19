@@ -1,0 +1,17 @@
+
+.situation {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+
+  
+  .title {
+    display: inline-block;
+  }
+
+  .right {
+    margin-left: auto;
+    align-self: center;
+  }
+}

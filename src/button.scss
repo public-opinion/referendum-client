@@ -1,0 +1,17 @@
+
+// https://stackoverflow.com/questions/58474760/sass-use-not-loading-partial
+@import "util";
+
+.button {
+  background: inherit;
+  cursor: pointer;
+  @include experimental(user-select, none);
+  height: 2em;
+  padding: 15px;
+  display: inline-flex;
+  place-items: center;
+
+  &:hover {
+    background: $semi-transparent;
+  }
+}
