@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 
 import Home from "./home/Home"
+import Login from "./login";
 import Topic from "./topic/Topic"
 
 export default function App() {
@@ -19,6 +20,9 @@ export default function App() {
         </Route>
         <Route path="/topic">
           <Topic />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
         <Route path="*">
           <div>

@@ -7,6 +7,7 @@ import { style } from "../util";
 import Tile from './Tile';
 
 import Header from "../common/Header";
+import TopicTile from './TopicTile';
 
 function Home() {
   return (
@@ -31,16 +32,20 @@ function Home() {
             stroke="black" fill="black" />
           </svg>
         </hgroup>
-        <Tile
+        <TopicTile
+            id="50505"
             title="Unaffordable housing for general public"
         />
-        <Tile
+        <TopicTile
+            id="12492"
             title="Write a book together yays"
         />
-        <Tile
+        <TopicTile
+            id="41242"
             title="SFF PC Case Tier list *** weighted aspects"
         />
-        <Tile
+        <TopicTile
+            id="35353"
             title="Improve this site"
         />
       </div>

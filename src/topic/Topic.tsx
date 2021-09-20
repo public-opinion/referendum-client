@@ -15,24 +15,25 @@ export declare interface TopicProps {
 function Topic({
   title
 }: TopicProps){
-  const [ _title, setTitle ] = useState(title);
+  const [ _title, setTitle ] = useState("");
   useEffect(() => {
+    
     let url = new URL(window.location.href);
-    if(!title){
-      setTitle(url.searchParams.get('t') as string);
-      let topic_id = url.searchParams.get('t') || ""
-      console.log("retrieving title from server api");
-      getTopicTitle(topic_id
-      ).then(title => {
-        if(title) setTitle(title);
-      })
-    }
-  }, [ title ])
+    setTitle(url.searchParams.get('t') as string);
+    let topic_id = url.searchParams.get('t') || ""
+    console.log("retrieving title from server api");
+    getTopicTitle(topic_id
+    ).then(title => {
+      if(title) setTitle(title);
+    })
+
+
+  }, [])
 
   return (
     <React.Fragment>
       <Header />
-      <div className="title">{_title}</div>
+      <h2 className="title">{_title}</h2>
     </React.Fragment>
   );
 }
