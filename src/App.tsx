@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import NotFound from "./404";
 
 import Home from "./home/Home"
 import Login from "./login";
@@ -15,21 +16,10 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/topic">
-          <Topic />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="*">
-          <div>
-            Page not found<br />
-            <Link to="/">Go back to home page</Link>
-          </div>
-        </Route>
+        <Route exact path="/"><Home /></Route>
+        <Route path="/topic"><Topic /></Route>
+        <Route path="/login"><Login /></Route>
+        <Route path="*"><NotFound /></Route>
       </Switch>
     </Router>
   );

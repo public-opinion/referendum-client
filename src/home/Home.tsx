@@ -8,8 +8,11 @@ import Tile from './Tile';
 
 import Header from "../common/Header";
 import TopicTile from './TopicTile';
+import { useState } from 'react';
 
 function Home() {
+  const [ topics, setTopics ] = useState()
+
   return (
     <div className="App">
       <Header />
@@ -34,7 +37,7 @@ function Home() {
         </hgroup>
         <TopicTile
             id="50505"
-            title="Unaffordable housing for general public"
+            title="Unaffordable housing for genersal public"
         />
         <TopicTile
             id="12492"
