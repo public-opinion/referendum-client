@@ -4,7 +4,6 @@ import "../tile.scss";
 import "../button.scss";
 
 import { style } from "../util";
-import Tile from './Tile';
 
 import Header from "../common/Header";
 import TopicTile from './TopicTile';
