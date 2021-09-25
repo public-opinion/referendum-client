@@ -2,7 +2,7 @@
 import "../tile.scss";
 import "../button.scss";
 
-import { style } from "../util";
+import { style } from "../common/util";
 
 import Header from "../common/Header";
 import React from "react";

@@ -1,30 +1,49 @@
 
+import { useEffect } from 'react';
+
 import './Home.css';
 import "../tile.scss";
 import "../button.scss";
+import "../css/global.scss";
 
-import { style } from "../util";
 
 import Header from "../common/Header";
 import TopicTile from './TopicTile';
 import { useState } from 'react';
+import { getTopics } from '../api/Topic';
+import type { Topic } from "../api/Topic";
 
 function Home() {
-  const [ topics, setTopics ] = useState()
+  const [ topics, setTopics ] = useState<Topic[]>([])
+
+  useEffect(() => {
+    let disposed = false;
+    (async () => {
+      let res = await getTopics("id, title, SUBSTRING(content, 1, 50)");
+      if(disposed) return;
+      try{
+        for(let row of res){
+          let strippedContent = row["SUBSTRING(content, 1, 50)"];
+          if(strippedContent?.length == 50){
+            strippedContent += " ...";
+          }
+          row["content"] = strippedContent;
+        }
+        setTopics(res);
+      } catch(e){
+        console.error(e);
+      }
+    })();
+    return () => { disposed = true; }
+  }, []);
 
   return (
     <div className="App">
       <Header />
       <div className="App-content">
-        <hgroup style={style(
-          "display: flex; place-items: center flex-start;"
-        )}>
+        <hgroup className="center-flex">
           <h1 style={{ display: "inline-block" }}>Topics</h1>
-          <svg
-          style={Object.assign({
-            border: "1px solid rgba(0, 0, 0, 0.2)",
-            marginLeft: "auto"
-          }, style("cursor: pointer"))}
+          <svg className="sort-button"
           width="35" height="35" viewBox="0 0 100 100"
           xmlns="http://www.w3.org/2000/svg">
             <path d="
@@ -34,22 +53,24 @@ function Home() {
             stroke="black" fill="black" />
           </svg>
         </hgroup>
-        <TopicTile
-            id="50505"
-            title="Unaffordable housing for genersal public"
-        />
-        <TopicTile
-            id="12492"
-            title="Write a book together yays"
-        />
-        <TopicTile
-            id="41242"
-            title="SFF PC Case Tier list *** weighted aspects"
-        />
-        <TopicTile
-            id="35353"
-            title="Improve this site"
-        />
+        {
+          topics.length === 0 ? (
+            <div>
+              Loading...
+            </div>
+          ) : (
+            topics.map(({
+              id, title, content
+            }) => {
+              return <TopicTile
+                key={id}
+                id={id}
+                title={title}
+                description={content}
+              />
+            })
+          )
+        }
       </div>
       <div className="App-footer">
 

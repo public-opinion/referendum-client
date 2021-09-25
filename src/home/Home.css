@@ -13,3 +13,10 @@
   padding: 15px;
 }
 
+
+
+.sort-button {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  margin-left: auto;
+}

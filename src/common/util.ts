@@ -1,5 +1,10 @@
 
-import type { CSSProperties } from "react";
+import type {
+  CSSProperties,
+  DependencyList,
+  EffectCallback,
+} from "react";
+import { useEffect } from "react";
 
 export const style = (cssString: string): CSSProperties => {
   let out: any = {};
@@ -18,3 +23,18 @@ export const style = (cssString: string): CSSProperties => {
 
   return out;
 };
+
+
+export function useAsyncEffect(
+  effect: (isMounted: () => boolean) => any,
+  deps?: DependencyList,
+){
+  useEffect(() => {
+    let mounted = true;
+    let isMounted = () => mounted;
+
+    effect(isMounted);
+
+    return () => { mounted = false; }
+  }, deps)
+}

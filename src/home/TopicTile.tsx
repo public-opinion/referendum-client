@@ -8,16 +8,17 @@ import {
 // import "../button.scss";
 
 export declare interface TileProps {
-    id: number | string
-    title?: string
+  id: number | string
+  title?: string
+  description?: string
 }
 
 export default function Tile({
-  id, title
+  id, title, description
 }: TileProps){
   return (
     <div className="situation">
-      <Link to={`/topic?t=${id}`}>
+      <Link to={`/topic?id=${id}`}>
         <h3 className="title">
           { title }
         </h3>
@@ -27,12 +28,8 @@ export default function Tile({
       </span>
       <span style={{ flexBasis: "100%", height: "0"}}></span>
       <span className="description"><small>
-
-        blah blah blah blah
+        {description || <i>(no description)</i>}
       </small></span>
-      <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 10 80 Q 52.5 10, 95 80 T 180 80" stroke="black" fill="transparent" />
-      </svg>
       <button className="button right">Vote Importance</button>
     </div>
   );

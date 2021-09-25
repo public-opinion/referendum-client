@@ -1,0 +1,11 @@
+
+// global not working
+:global(.center-flex) {
+  display: flex;
+  place-items: center flex-start;
+}
+
+.center-flex {
+  display: flex;
+  place-items: center flex-start;
+}
