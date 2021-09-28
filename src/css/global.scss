@@ -2,10 +2,33 @@
 // global not working
 :global(.center-flex) {
   display: flex;
-  place-items: center flex-start;
+  place-items: center center;
 }
 
 .center-flex {
   display: flex;
-  place-items: center flex-start;
+  place-items: center center;
+}
+.flex-center {
+  display: flex;
+  place-items: center center;
+}
+.inline-flex-center {
+  display: inline-flex;
+  place-items: center center;
+}
+
+.max {
+  height: 100%;
+  width: 100%;
+}
+
+.square {
+  width: 300px;
+}
+
+.square-content {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

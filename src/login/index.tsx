@@ -1,6 +1,5 @@
 
 import "../tile.scss";
-import "../button.scss";
 
 import { style } from "../common/util";
 

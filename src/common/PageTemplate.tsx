@@ -1,10 +1,12 @@
 
+
+import type { ReactNode } from "react";
 import React from 'react';
 
 import Header from "../common/Header";
 
 export declare interface Props {
-  children?: React.ReactChild[]
+  children?: ReactNode
 }
 
 function PageTemplate({

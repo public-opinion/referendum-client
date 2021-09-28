@@ -1,8 +1,6 @@
 
 import type {
   CSSProperties,
-  DependencyList,
-  EffectCallback,
 } from "react";
 import { useEffect } from "react";
 
@@ -27,7 +25,7 @@ export const style = (cssString: string): CSSProperties => {
 
 export function useAsyncEffect(
   effect: (isMounted: () => boolean) => any,
-  deps?: DependencyList,
+  deps?: any[],
 ){
   useEffect(() => {
     let mounted = true;
@@ -36,5 +34,9 @@ export function useAsyncEffect(
     effect(isMounted);
 
     return () => { mounted = false; }
-  }, deps)
+  }, deps && [ ...deps ])
+}
+
+export function capitalize(word: string){
+  return word[0].toUpperCase() + word.slice(1);
 }

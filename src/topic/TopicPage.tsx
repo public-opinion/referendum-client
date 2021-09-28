@@ -1,12 +1,11 @@
 
 import React, { useState } from 'react';
-import "../button.scss";
 
 // import { style } from "../util";
 
 import Header from "../common/Header";
 
-import { getTopicInfo } from '../api/Topic';
+import { getTopicInfo } from '../logics/Topic';
 import { useAsyncEffect } from '../common/util';
 
 export declare interface TopicProps {
@@ -14,7 +13,7 @@ export declare interface TopicProps {
   content?: string
 }
 
-function Topic({
+function TopicPage({
   title,
   content
 }: TopicProps){
@@ -52,4 +51,4 @@ function Topic({
   );
 }
 
-export default Topic;
+export default TopicPage;
