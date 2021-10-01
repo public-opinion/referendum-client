@@ -10,7 +10,7 @@ import "./Button.scss";
 export type ButtonProps = {
   children?: ReactNode
   href?: string
-  onClick?: MouseEventHandler<HTMLAnchorElement>
+  onClick?: MouseEventHandler<HTMLAnchorElement | HTMLDivElement>
   className?: string
 }
 
@@ -21,11 +21,21 @@ export default function Button({
   onClick,
   className
 }: ButtonProps){
+  if(href){
+
+    return (
+      <a className={"button " + className}
+          href={href}
+          onClick={onClick}>
+        { children }
+      </a>
+    );
+  }
+
   return (
-    <a className={"button " + className}
-        href={href}
+    <div className={"button " + className}
         onClick={onClick}>
       { children }
-    </a>
-  );
+    </div>
+  )
 }

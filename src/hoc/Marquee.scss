@@ -1,0 +1,30 @@
+
+@keyframes move {
+  from {
+    transform: translateX(100%);
+  } to {
+    transform: translateX(-100%);
+  }
+}
+
+
+.marquee-base {
+
+  overflow: hidden;
+  border-left: 15px solid #282c34;
+  border-right: 30px solid #282c34;
+  margin-right: 60px;
+  height: 100%;
+  display: inline-block;
+
+  & * {
+    transform: translateX(100%);
+    animation: 7s linear 0.5s infinite move;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+  }
+  &:hover * {
+    animation-play-state: paused;
+  }
+}

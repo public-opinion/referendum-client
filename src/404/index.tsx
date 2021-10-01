@@ -20,9 +20,9 @@ export default function NotFound({
       <div>
         { msg || "Page not found" }
       </div><br />
-      <Button href="/">
-        Go back to home page
-      </Button>
+      <Link to="/"><Button>Go back to home page</Button>
+        
+      </Link>
     </div>
   );
 }

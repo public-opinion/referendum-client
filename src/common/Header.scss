@@ -21,8 +21,16 @@
     margin-top: 35px;
     display: none;
     /* align-self does not fit */
+    white-space: nowrap;;
+    width: auto;
   }
 
+}
+
+.header-right {
+  margin: 15px 15px 0 auto;
+  cursor: pointer;
+  color: white;
 }
 
 @media only screen and (min-width: 1280px) {

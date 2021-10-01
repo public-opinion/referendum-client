@@ -7,6 +7,10 @@ import {
 } from "react-router-dom";
 
 import "./Header.scss"
+import Marquee from '../hoc/Marquee';
+import { User } from '../ui/SVGIcons';
+import { style } from './util';
+import Button from './Button';
 
 export default function Home() {
   return (
@@ -16,11 +20,19 @@ export default function Home() {
         Referendum
       </Link>
       &nbsp;
-      <p className="description">
-        you can raise topic,
-        suggest solution,
-        and vote for opinion in any organization
-      </p>
+      <Marquee>
+        <p className="description">
+          you can raise topic,
+          suggest solution,
+          and vote for opinion in any organization
+        </p>
+      </Marquee>
+      
+      <Link className="header-right" to="/user">
+        <User
+            width="60" height="60"
+            stroke="black" fill="white" />
+      </Link>
     </header>
   );
 }

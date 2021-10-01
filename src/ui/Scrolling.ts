@@ -23,7 +23,11 @@ export function useWindowAtBottom(
           d.scrollHeight - d.clientHeight - buffer
       );
       if(_atBottom){
-        callbackContainer.current?.();
+        let value = callbackContainer.current
+        if(typeof value === "function"
+        && value instanceof Function){
+          value();
+        }
       }
     };
 
@@ -31,6 +35,6 @@ export function useWindowAtBottom(
     return () => {
       window.removeEventListener("scroll", onScroll);
     }
-  }, []);
+  }, [ buffer ]);
   return callbackContainer;
 }

@@ -23,9 +23,9 @@ export const style = (cssString: string): CSSProperties => {
 };
 
 
-export function useAsyncEffect(
+export function useAsyncEffect<A,B,C,D,E,F,G>(
   effect: (isMounted: () => boolean) => any,
-  deps?: any[],
+  deps?: Partial<[A, B, C, D, E, F, G]> | [],
 ){
   useEffect(() => {
     let mounted = true;
@@ -34,7 +34,7 @@ export function useAsyncEffect(
     effect(isMounted);
 
     return () => { mounted = false; }
-  }, deps && [ ...deps ])
+  }, deps && [ ...deps, effect ])
 }
 
 export function capitalize(word: string){
