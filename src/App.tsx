@@ -13,6 +13,7 @@ import Login from "./login";
 import Playground from "./playground/Playground";
 import TopicPage from "./topic/TopicPage"
 import CreateTopic from "./topic/create/CreateTopic";
+import RegisterPage from "./pages/register/RegisterPage";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/topic/create"><CreateTopic /></Route>
         <Route path="/topic"><TopicPage /></Route>
         <Route path="/login"><Login /></Route>
+        <Route path="/register"><RegisterPage /></Route>
         <Route path="/playground"><Playground /></Route>
         <Route path="*"><NotFound /></Route>
       </Switch>

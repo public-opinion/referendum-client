@@ -12,6 +12,8 @@ export type ButtonProps = {
   href?: string
   onClick?: MouseEventHandler<HTMLAnchorElement | HTMLDivElement>
   className?: string
+  disabled?: boolean
+  [ key: string ]: any
 }
 
 
@@ -19,22 +21,31 @@ export default function Button({
   children,
   href,
   onClick,
-  className
+  className,
+  disabled,
+  ...props
 }: ButtonProps){
+  const actualProps = {
+    className: "button " + (
+      disabled ? " disabled " : ""
+    ) + className,
+    href,
+    onClick,
+    ...props
+  };
+
+
   if(href){
 
     return (
-      <a className={"button " + className}
-          href={href}
-          onClick={onClick}>
+      <a { ...actualProps }>
         { children }
       </a>
     );
   }
 
   return (
-    <div className={"button " + className}
-        onClick={onClick}>
+    <div { ...actualProps }>
       { children }
     </div>
   )

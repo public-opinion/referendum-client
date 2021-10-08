@@ -14,4 +14,9 @@
   &:hover {
     background: $semi-transparent;
   }
+
+  &.disabled {
+    pointer-events: none;
+    color: rgb(46, 44, 44);
+  }
 }
